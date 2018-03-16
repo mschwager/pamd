@@ -14,12 +14,12 @@ export class DirectiveComponent implements OnInit {
     'requisite',
     'sufficient',
     'optional'
-  ]
+  ];
 
   directive: Directive = {
     pam_control: 'required',
     pam_module: ''
-  }
+  };
 
   constructor() { }
 
