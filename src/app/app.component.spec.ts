@@ -1,7 +1,9 @@
+import { FormsModule } from '@angular/forms';
 import { TestBed, async } from '@angular/core/testing';
 
 import { AppComponent } from './app.component';
 import { ServiceComponent } from './service/service.component';
+import { DirectiveComponent } from './directive/directive.component';
 
 describe('AppComponent', () => {
 
@@ -9,8 +11,12 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
-        ServiceComponent
+        ServiceComponent,
+        DirectiveComponent
       ],
+      imports: [
+        FormsModule
+      ]
     }).compileComponents();
   }));
 

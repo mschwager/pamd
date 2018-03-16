@@ -1,0 +1,16 @@
+<tr>
+  <td>
+    <select>
+      <option *ngFor="let control of controls"
+          [selected]="control === directive.pam_control"
+          [value]="control">
+        {{ control }}
+      </option>
+    </select>
+  </td>
+  <td><input [(ngModel)]="directive.pam_module" type="text" id="module" name="module" placeholder="pam_unix.so"></td>
+  <td><button type="button" class="btn btn-outline-success">✓</button></td>
+  <td><button type="button" class="btn btn-outline-danger">✗</button></td>
+  <td><button type="button" class="btn btn-outline-info">＋</button></td>
+  <td><button type="button" class="btn btn-outline-info">－</button></td>
+</tr>
