@@ -2,7 +2,6 @@ import { FormsModule } from '@angular/forms';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ServiceComponent } from './service.component';
-import { DirectiveComponent } from '../directive/directive.component';
 
 describe('ServiceComponent', () => {
   let component: ServiceComponent;
@@ -12,7 +11,6 @@ describe('ServiceComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         ServiceComponent,
-        DirectiveComponent
       ],
       imports: [
         FormsModule

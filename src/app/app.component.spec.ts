@@ -3,7 +3,6 @@ import { TestBed, async } from '@angular/core/testing';
 
 import { AppComponent } from './app.component';
 import { ServiceComponent } from './service/service.component';
-import { DirectiveComponent } from './directive/directive.component';
 
 describe('AppComponent', () => {
 
@@ -12,7 +11,6 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent,
         ServiceComponent,
-        DirectiveComponent
       ],
       imports: [
         FormsModule
