@@ -1,0 +1,10 @@
+.color-none {
+}
+
+.color-success {
+  background-color: green;
+}
+
+.color-failure {
+  background-color: red;
+}

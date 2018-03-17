@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Directive } from './directive';
+import { Directive, DirectiveColor } from './directive';
 
 @Component({
   selector: 'app-service',
@@ -17,20 +17,32 @@ export class ServiceComponent implements OnInit {
   ];
 
   directives: Array<Directive> = [
-    new Directive('required', ''),
+    new Directive('required', '', DirectiveColor.NONE),
   ];
+
+  readonly DirectiveColor = DirectiveColor;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  addDirective() {
-    this.directives.push(new Directive('required', ''));
+  getDirectiveLength() {
+    return this.directives.length;
   }
 
-  removeDirective(directive: Directive) {
-    this.directives.splice(this.directives.indexOf(directive), 1);
+  addDirective() {
+    const directive = new Directive('required', '', DirectiveColor.NONE);
+
+    this.directives.push(directive);
+  }
+
+  removeDirective(index: number) {
+    this.directives.splice(index, 1);
+  }
+
+  setDirectiveColor(index: number, color: DirectiveColor) {
+    this.directives[index].color = color;
   }
 
 }

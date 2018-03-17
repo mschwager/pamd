@@ -10,7 +10,7 @@
     </tr>
   </thead>
 <tbody>
-  <tr *ngFor="let directive of directives">
+  <tr *ngFor="let directive of directives; let i = index" [ngClass]="directive.color">
     <td>
       <select>
         <option *ngFor="let control of controls"
@@ -21,10 +21,10 @@
       </select>
     </td>
     <td><input [(ngModel)]="directive.pam_module" type="text" id="module" name="module" placeholder="pam_unix.so"></td>
-    <td><button type="button" class="btn btn-outline-success">✓</button></td>
-    <td><button type="button" class="btn btn-outline-danger">✗</button></td>
+    <td><button (click)="setDirectiveColor(i, DirectiveColor.SUCCESS)" type="button" class="btn btn-outline-success">✓</button></td>
+    <td><button (click)="setDirectiveColor(i, DirectiveColor.FAILURE)" type="button" class="btn btn-outline-danger">✗</button></td>
     <td><button (click)="addDirective()" type="button" class="btn btn-outline-info">＋</button></td>
-    <td><button (click)="removeDirective(directive)" type="button" class="btn btn-outline-info">－</button></td>
+    <td><button (click)="removeDirective(i)" type="button" class="btn btn-outline-info">－</button></td>
   </tr>
 </tbody>
 </table>
