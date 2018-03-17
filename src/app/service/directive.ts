@@ -1,18 +1,14 @@
-export enum DirectiveColor {
-  NONE = 'color-none',
-  SUCCESS = 'color-success',
-  FAILURE = 'color-failure',
-}
+import { Color } from './color';
 
 export class Directive {
   public pam_control: string;
   public pam_module: string;
-  public color: DirectiveColor;
+  public color: Color;
 
   constructor(
     pam_control: string,
     pam_module: string,
-    color: DirectiveColor
+    color: Color
   ) {
     this.pam_control = pam_control;
     this.pam_module = pam_module;

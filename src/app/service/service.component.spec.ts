@@ -1,7 +1,7 @@
 import { FormsModule } from '@angular/forms';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DirectiveColor } from './directive';
+import { Color } from './color';
 import { ServiceComponent } from './service.component';
 
 describe('ServiceComponent', () => {
@@ -47,9 +47,9 @@ describe('ServiceComponent', () => {
   });
 
   it('set directive color', () => {
-    component.setDirectiveColor(0, DirectiveColor.SUCCESS);
+    component.setDirectiveColor(0, Color.SUCCESS);
 
-    expect(component.directives[0].color).toBe(DirectiveColor.SUCCESS);
+    expect(component.directives[0].color).toBe(Color.SUCCESS);
   });
 
 });
