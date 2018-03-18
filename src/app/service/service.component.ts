@@ -10,22 +10,31 @@ import { Color } from './color';
 })
 export class ServiceComponent implements OnInit {
 
-  controls: Array<string> = [
+  readonly controls: Array<string> = [
     'required',
     'requisite',
     'sufficient',
     'optional'
   ];
 
-  directives: Array<Directive> = [
-    new Directive('required', '', Color.NONE),
-  ];
+  directives: Array<Directive>;
 
   readonly Color = Color;
 
   constructor() { }
 
   ngOnInit() {
+    this.initialize();
+  }
+
+  initialize() {
+    this.directives = [
+      this.createDefaultDirective(),
+    ];
+  }
+
+  createDefaultDirective() {
+    return new Directive('required', '', Color.NONE);
   }
 
   getDirectiveLength() {
@@ -33,7 +42,7 @@ export class ServiceComponent implements OnInit {
   }
 
   addDirective() {
-    const directive = new Directive('required', '', Color.NONE);
+    const directive = this.createDefaultDirective();
 
     this.directives.push(directive);
   }
