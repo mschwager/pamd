@@ -1,30 +1,34 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Control</th>
-      <th scope="col">Module</th>
-      <th scope="col"></th>
-      <th scope="col"></th>
-      <th scope="col"></th>
-      <th scope="col"></th>
-    </tr>
-  </thead>
-<tbody>
-  <tr *ngFor="let directive of directives; let i = index" [ngClass]="directive.color">
-    <td>
-      <select>
-        <option *ngFor="let control of controls"
-            [selected]="control === directive.pam_control"
-            [value]="control">
-          {{ control }}
-        </option>
-      </select>
-    </td>
-    <td><input [(ngModel)]="directive.pam_module" type="text" id="module" name="module" placeholder="pam_unix.so"></td>
-    <td><button (click)="setDirectiveColor(i, Color.SUCCESS)" type="button" class="btn btn-outline-success">✓</button></td>
-    <td><button (click)="setDirectiveColor(i, Color.FAILURE)" type="button" class="btn btn-outline-danger">✗</button></td>
-    <td><button (click)="addDirective()" type="button" class="btn btn-outline-info">＋</button></td>
-    <td><button (click)="removeDirective(i)" type="button" class="btn btn-outline-info">－</button></td>
-  </tr>
-</tbody>
-</table>
+<div class="row">
+  <div class="col">Control</div>
+  <div class="col">Module</div>
+  <div class="col"></div>
+  <div class="col"></div>
+  <div class="col"></div>
+  <div class="col"></div>
+</div>
+<div class="row" *ngFor="let directive of directives; let i = index" [ngClass]="directive.color">
+  <div class="col">
+    <select>
+      <option *ngFor="let control of controls"
+          [selected]="control === directive.pam_control"
+          [value]="control">
+        {{ control }}
+      </option>
+    </select>
+  </div>
+  <div class="col">
+    <input [(ngModel)]="directive.pam_module" type="text" id="module" name="module" placeholder="pam_unix.so">
+  </div>
+  <div class="col">
+    <button (click)="setDirectiveColor(i, Color.SUCCESS)" type="button" class="btn btn-outline-success">✓</button>
+  </div>
+  <div class="col">
+    <button (click)="setDirectiveColor(i, Color.FAILURE)" type="button" class="btn btn-outline-danger">✗</button>
+  </div>
+  <div class="col">
+    <button (click)="addDirective()" type="button" class="btn btn-outline-info">＋</button>
+  </div>
+  <div class="col">
+    <button (click)="removeDirective(i)" type="button" class="btn btn-outline-info">－</button>
+  </div>
+</div>
