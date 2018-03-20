@@ -27,31 +27,30 @@ export class ServiceComponent implements OnInit {
     this.initialize();
   }
 
-  initialize() {
+  initialize(): void {
     this.directives = [
       this.createDefaultDirective(),
     ];
   }
 
-  createDefaultDirective() {
+  createDefaultDirective(): Directive {
     return new Directive('required', '', Color.NONE);
   }
 
-  getDirectiveLength() {
+  getDirectiveLength(): number {
     return this.directives.length;
   }
 
-  addDirective() {
+  addDirective(): void {
     const directive = this.createDefaultDirective();
-
     this.directives.push(directive);
   }
 
-  removeDirective(index: number) {
+  removeDirective(index: number): void {
     this.directives.splice(index, 1);
   }
 
-  setDirectiveColor(index: number, color: Color) {
+  setDirectiveColor(index: number, color: Color): void {
     this.directives[index].color = color;
   }
 
