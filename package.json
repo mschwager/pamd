@@ -8,7 +8,7 @@
     "build": "ng build --prod",
     "test": "ng test",
     "test:cover": "ng test --code-coverage",
-    "coveralls": "cat ./coverage/*/lcov.info | coveralls",
+    "coveralls": "cat coverage/lcov.info | coveralls",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
