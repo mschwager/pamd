@@ -46,10 +46,18 @@ describe('ServiceComponent', () => {
     expect(component.getDirectiveLength()).toBe(0);
   });
 
-  it('set directive color', () => {
-    component.setDirectiveColor(0, Color.SUCCESS);
+  it('set directive result success', () => {
+    component.setDirectiveResult(0, true);
 
+    expect(component.directives[0].success).toBe(true);
     expect(component.directives[0].color).toBe(Color.SUCCESS);
+  });
+
+  it('set directive result failure', () => {
+    component.setDirectiveResult(0, false);
+
+    expect(component.directives[0].success).toBe(false);
+    expect(component.directives[0].color).toBe(Color.FAILURE);
   });
 
 });

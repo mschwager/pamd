@@ -2,6 +2,13 @@ import { Component, OnInit } from '@angular/core';
 
 import { Directive } from './directive';
 import { Color } from './color';
+import {
+  Control,
+  Required,
+  Requisite,
+  Sufficient,
+  Binding
+} from './control/control';
 
 @Component({
   selector: 'app-service',
@@ -14,10 +21,12 @@ export class ServiceComponent implements OnInit {
     'required',
     'requisite',
     'sufficient',
-    'optional'
+    'binding'
   ];
 
   directives: Array<Directive>;
+
+  result_color: Color = Color.NONE;
 
   readonly Color = Color;
 
@@ -34,7 +43,7 @@ export class ServiceComponent implements OnInit {
   }
 
   createDefaultDirective(): Directive {
-    return new Directive('required', '', Color.NONE);
+    return new Directive('required', '', Color.NONE, null);
   }
 
   getDirectiveLength(): number {
@@ -50,8 +59,45 @@ export class ServiceComponent implements OnInit {
     this.directives.splice(index, 1);
   }
 
-  setDirectiveColor(index: number, color: Color): void {
-    this.directives[index].color = color;
+  setDirectiveResult(index: number, success: boolean): void {
+    this.directives[index].success = success;
+    this.directives[index].color = success ? Color.SUCCESS : Color.FAILURE;
+
+    let result: boolean;
+    let control_string: string;
+    let controller: Control;
+    let continue_evaluating: boolean;
+
+    for (let i = 0; i <= index; i++) {
+      control_string = this.directives[index].pam_control;
+      controller = this.getControl(control_string);
+
+      [result, continue_evaluating] = controller.evaluate(result, success);
+
+      if (!continue_evaluating) {
+        this.result_color = result ? Color.SUCCESS : Color.FAILURE;
+        break;
+      }
+    }
+
+    if (index === (this.getDirectiveLength() - 1)) {
+      this.result_color = result ? Color.SUCCESS : Color.FAILURE;
+    }
+  }
+
+  getControl(control: string): Control {
+    switch (control) {
+      case 'required':
+        return new Required();
+      case 'requisite':
+        return new Requisite();
+      case 'sufficient':
+        return new Sufficient();
+      case 'binding':
+        return new Binding();
+      default:
+        throw new Error('Invalid control string: ' + control);
+    }
   }
 
 }

@@ -1,34 +1,36 @@
-<div class="row">
-  <div class="col">Control</div>
-  <div class="col">Module</div>
-  <div class="col"></div>
-  <div class="col"></div>
-  <div class="col"></div>
-  <div class="col"></div>
-</div>
-<div class="row" *ngFor="let directive of directives; let i = index" [ngClass]="directive.color">
-  <div class="col">
-    <select>
-      <option *ngFor="let control of controls"
-          [selected]="control === directive.pam_control"
-          [value]="control">
-        {{ control }}
-      </option>
-    </select>
+<div class="jumbotron" [ngClass]="result_color">
+  <div class="row">
+    <div class="col">Control</div>
+    <div class="col">Module</div>
+    <div class="col"></div>
+    <div class="col"></div>
+    <div class="col"></div>
+    <div class="col"></div>
   </div>
-  <div class="col">
-    <input [(ngModel)]="directive.pam_module" type="text" id="module" name="module" placeholder="pam_unix.so">
-  </div>
-  <div class="col">
-    <button (click)="setDirectiveColor(i, Color.SUCCESS)" type="button" class="btn btn-outline-success">✓</button>
-  </div>
-  <div class="col">
-    <button (click)="setDirectiveColor(i, Color.FAILURE)" type="button" class="btn btn-outline-danger">✗</button>
-  </div>
-  <div class="col">
-    <button (click)="addDirective()" type="button" class="btn btn-outline-info">＋</button>
-  </div>
-  <div class="col">
-    <button (click)="removeDirective(i)" type="button" class="btn btn-outline-info">－</button>
+  <div class="row" *ngFor="let directive of directives; let i = index" [ngClass]="directive.color">
+    <div class="col">
+      <select [(ngModel)]="directive.pam_control">
+        <option *ngFor="let control of controls"
+            [selected]="control === directive.pam_control"
+            [value]="control">
+          {{ control }}
+        </option>
+      </select>
+    </div>
+    <div class="col">
+      <input [(ngModel)]="directive.pam_module" type="text" id="module" name="module" placeholder="pam_unix.so">
+    </div>
+    <div class="col">
+      <button (click)="setDirectiveResult(i, true)" [disabled]="!directive.pam_module" type="button" class="btn btn-outline-success">✓</button>
+    </div>
+    <div class="col">
+      <button (click)="setDirectiveResult(i, false)" [disabled]="!directive.pam_module" type="button" class="btn btn-outline-danger">✗</button>
+    </div>
+    <div class="col">
+      <button (click)="addDirective()" type="button" class="btn btn-outline-info">＋</button>
+    </div>
+    <div class="col">
+      <button (click)="removeDirective(i)" type="button" class="btn btn-outline-info">－</button>
+    </div>
   </div>
 </div>
