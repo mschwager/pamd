@@ -63,7 +63,7 @@ export class ServiceComponent implements OnInit {
     this.directives[index].success = success;
     this.directives[index].color = success ? Color.SUCCESS : Color.FAILURE;
 
-    let result: boolean;
+    let result = true;
     let control_string: string;
     let controller: Control;
     let continue_evaluating: boolean;
