@@ -35,8 +35,26 @@ class Binding implements Control {
   }
 }
 
+class ControlFactory {
+  public static createControl(control: string): Control {
+    switch (control) {
+      case 'required':
+        return new Required();
+      case 'requisite':
+        return new Requisite();
+      case 'sufficient':
+        return new Sufficient();
+      case 'binding':
+        return new Binding();
+      default:
+        throw new Error('Invalid control string: ' + control);
+    }
+  }
+}
+
 export {
   Control,
+  ControlFactory,
   Required,
   Requisite,
   Sufficient,

@@ -4,6 +4,7 @@ import { Directive } from './directive';
 import { Color } from './color';
 import {
   Control,
+  ControlFactory,
   Required,
   Requisite,
   Sufficient,
@@ -70,7 +71,7 @@ export class ServiceComponent implements OnInit {
 
     for (let i = 0; i <= index; i++) {
       control_string = this.directives[index].pam_control;
-      controller = this.getControl(control_string);
+      controller = ControlFactory.createControl(control_string);
 
       [result, continue_evaluating] = controller.evaluate(result, success);
 
@@ -84,20 +85,4 @@ export class ServiceComponent implements OnInit {
       this.result_color = result ? Color.SUCCESS : Color.FAILURE;
     }
   }
-
-  getControl(control: string): Control {
-    switch (control) {
-      case 'required':
-        return new Required();
-      case 'requisite':
-        return new Requisite();
-      case 'sufficient':
-        return new Sufficient();
-      case 'binding':
-        return new Binding();
-      default:
-        throw new Error('Invalid control string: ' + control);
-    }
-  }
-
 }
