@@ -22,37 +22,45 @@
 
   <app-service></app-service>
 
-  <div class="row">
-    <div class="col-lg-6">
-      <dl class="row">
-        <dt class="col-sm-3">required</dt>
-        <dd class="col-sm-9">Success is required; on failure all remaining modules are run, but the request will be denied.</dd>
+  <div class="container app-legend">
+    <div class="row">
+      <div class="col-lg-6">
+        <dl class="row">
+          <dt class="col-sm-3">required</dt>
+          <dd class="col-sm-9">Success is required; on failure all remaining modules are run, but the request will be denied.</dd>
 
-        <dt class="col-sm-3">requisite</dt>
-        <dd class="col-sm-9">Success is required, and on failure no remaining modules are run.</dd>
+          <dt class="col-sm-3">requisite</dt>
+          <dd class="col-sm-9">Success is required, and on failure no remaining modules are run.</dd>
 
-        <dt class="col-sm-3">sufficient</dt>
-        <dd class="col-sm-9">Success is sufficient, and if no previous required module failed, no remaining modules are run.</dd>
+          <dt class="col-sm-3">sufficient</dt>
+          <dd class="col-sm-9">Success is sufficient, and if no previous required module failed, no remaining modules are run.</dd>
 
-        <dt class="col-sm-3">binding</dt>
-        <dd class="col-sm-9">Success is sufficient; on failure all remaining modules are run, but the request will be denied.</dd>
-      </dl>
-    </div>
-    <div class="col-lg-6">
-      <ul class="list-group">
-        <li class="list-group-item">
-          <button type="button" class="btn btn-success" disabled>✓</button> ‒ Success
-        </li>
-        <li class="list-group-item">
-          <button type="button" class="btn btn-danger" disabled>✗</button> ‒ Failure
-        </li>
-        <li class="list-group-item">
-          <button type="button" class="btn btn-info" disabled>+</button> ‒ Create module
-        </li>
-        <li class="list-group-item">
-          <button type="button" class="btn btn-info" disabled>−</button> ‒ Remove module
-        </li>
-      </ul>
+          <dt class="col-sm-3">binding</dt>
+          <dd class="col-sm-9">Success is sufficient; on failure all remaining modules are run, but the request will be denied.</dd>
+        </dl>
+      </div>
+      <div class="col-lg-6">
+        <ul class="list-group">
+          <li class="list-group-item">
+            <button type="button" class="btn btn-success" disabled>✓</button> ‒ Success
+          </li>
+          <li class="list-group-item">
+            <button type="button" class="btn btn-danger" disabled>✗</button> ‒ Failure
+          </li>
+          <li class="list-group-item">
+            <button type="button" class="btn btn-info" disabled>+</button> ‒ Create module
+          </li>
+          <li class="list-group-item">
+            <button type="button" class="btn btn-info" disabled>−</button> ‒ Remove module
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </main>
+
+<footer class="footer text-muted">
+  <div class="container">
+    <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  </div>
+</footer>
