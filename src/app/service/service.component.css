@@ -8,3 +8,12 @@
 .color-failure {
   background-color: #f2d7d5;
 }
+
+.row {
+  padding: 5px;
+}
+
+.vertical-center {
+  display: flex;
+  align-items: center;
+}

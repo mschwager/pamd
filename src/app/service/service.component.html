@@ -8,7 +8,7 @@
     <div class="col"></div>
   </div>
   <div class="row" *ngFor="let directive of directives; let i = index" [ngClass]="directive.color">
-    <div class="col">
+    <div class="col vertical-center">
       <select [(ngModel)]="directive.pam_control">
         <option *ngFor="let control of controls"
             [selected]="control === directive.pam_control"
@@ -17,7 +17,7 @@
         </option>
       </select>
     </div>
-    <div class="col">
+    <div class="col vertical-center">
       <input [(ngModel)]="directive.pam_module" type="text" id="module" name="module" placeholder="pam_unix.so">
     </div>
     <div class="col">
