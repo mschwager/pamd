@@ -1,15 +1,15 @@
 <div class="jumbotron" [ngClass]="result_color">
   <div class="row">
-    <div class="col">Control</div>
-    <div class="col">Module</div>
-    <div class="col"></div>
-    <div class="col"></div>
-    <div class="col"></div>
-    <div class="col"></div>
+    <div class="col-6 col-md-4">Control</div>
+    <div class="col-6 col-md-4">Module</div>
+    <div class="col-3 col-md-1"></div>
+    <div class="col-3 col-md-1"></div>
+    <div class="col-3 col-md-1"></div>
+    <div class="col-3 col-md-1"></div>
   </div>
   <div class="row" *ngFor="let directive of directives; let i = index" [ngClass]="directive.color">
-    <div class="col vertical-center">
-      <select [(ngModel)]="directive.pam_control">
+    <div class="col-6 col-md-4 vertical-center">
+      <select class="form-control" [(ngModel)]="directive.pam_control">
         <option *ngFor="let control of controls"
             [selected]="control === directive.pam_control"
             [value]="control">
@@ -17,19 +17,19 @@
         </option>
       </select>
     </div>
-    <div class="col vertical-center">
-      <input [(ngModel)]="directive.pam_module" type="text" id="module" name="module" placeholder="pam_unix.so">
+    <div class="col-6 col-md-4 vertical-center">
+      <input class="form-control" [(ngModel)]="directive.pam_module" type="text" id="module" name="module" placeholder="pam_unix.so">
     </div>
-    <div class="col">
+    <div class="col-3 col-md-1">
       <button (click)="setDirectiveResult(i, true)" [disabled]="!directive.pam_module" type="button" class="btn btn-outline-success">✓</button>
     </div>
-    <div class="col">
+    <div class="col-3 col-md-1">
       <button (click)="setDirectiveResult(i, false)" [disabled]="!directive.pam_module" type="button" class="btn btn-outline-danger">✗</button>
     </div>
-    <div class="col">
+    <div class="col-3 col-md-1">
       <button (click)="addDirective()" type="button" class="btn btn-outline-info">+</button>
     </div>
-    <div class="col">
+    <div class="col-3 col-md-1">
       <button (click)="removeDirective(i)" type="button" class="btn btn-outline-info">−</button>
     </div>
   </div>
