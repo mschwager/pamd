@@ -30,7 +30,7 @@
       <button (click)="addDirective()" type="button" class="btn btn-outline-info">+</button>
     </div>
     <div class="col-3 col-md-1">
-      <button (click)="removeDirective(i)" type="button" class="btn btn-outline-info">−</button>
+      <button (click)="removeDirective(i)" [disabled]="directives.length <= 1" type="button" class="btn btn-outline-info">−</button>
     </div>
   </div>
 </div>
