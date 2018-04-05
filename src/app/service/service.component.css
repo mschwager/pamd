@@ -17,3 +17,7 @@
   display: flex;
   align-items: center;
 }
+
+.reset-button {
+  padding-top: 2rem;
+}

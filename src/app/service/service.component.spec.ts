@@ -60,4 +60,12 @@ describe('ServiceComponent', () => {
     expect(component.directives[0].color).toBe(Color.FAILURE);
   });
 
+  it('reset directives', () => {
+    component.addDirective();
+    component.addDirective();
+    component.resetDirectives();
+
+    expect(component.getDirectiveLength()).toBe(1);
+  });
+
 });

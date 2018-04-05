@@ -85,4 +85,8 @@ export class ServiceComponent implements OnInit {
       this.result_color = result ? Color.SUCCESS : Color.FAILURE;
     }
   }
+
+  resetDirectives(): void {
+    this.initialize();
+  }
 }
