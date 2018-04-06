@@ -29,7 +29,7 @@ export class ServiceComponent implements OnInit {
 
   directives: Array<Directive>;
 
-  result_color: Color = Color.NONE;
+  result_color: Color;
 
   readonly Color = Color;
 
@@ -43,6 +43,7 @@ export class ServiceComponent implements OnInit {
     this.directives = [
       this.createDefaultDirective(),
     ];
+    this.result_color = Color.NONE;
   }
 
   createDefaultDirective(): Directive {
