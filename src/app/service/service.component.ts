@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
+import { BulkAddComponent } from '../bulk-add/bulk-add.component';
 import { Directive } from './directive';
 import { Color } from './color';
 import {
@@ -31,7 +33,7 @@ export class ServiceComponent implements OnInit {
 
   readonly Color = Color;
 
-  constructor() { }
+  constructor(private modal: NgbModal) { }
 
   ngOnInit() {
     this.initialize();
@@ -88,5 +90,9 @@ export class ServiceComponent implements OnInit {
 
   resetDirectives(): void {
     this.initialize();
+  }
+
+  openBulkAddModal(): void {
+    this.modal.open(BulkAddComponent, { size: 'lg', centered: true });
   }
 }

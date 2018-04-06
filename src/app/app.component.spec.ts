@@ -1,5 +1,6 @@
 import { FormsModule } from '@angular/forms';
 import { TestBed, async } from '@angular/core/testing';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { ServiceComponent } from './service/service.component';
@@ -13,7 +14,8 @@ describe('AppComponent', () => {
         ServiceComponent,
       ],
       imports: [
-        FormsModule
+        FormsModule,
+        NgbModule.forRoot()
       ]
     }).compileComponents();
   }));

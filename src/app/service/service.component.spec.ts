@@ -1,5 +1,6 @@
 import { FormsModule } from '@angular/forms';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { Color } from './color';
 import { ServiceComponent } from './service.component';
@@ -14,7 +15,11 @@ describe('ServiceComponent', () => {
         ServiceComponent,
       ],
       imports: [
-        FormsModule
+        FormsModule,
+        NgbModule.forRoot()
+      ],
+      providers: [
+        NgbModal
       ]
     })
     .compileComponents();
