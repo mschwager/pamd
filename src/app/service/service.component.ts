@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 
 import { BulkAddComponent } from '../bulk-add/bulk-add.component';
 import { Directive } from './directive';
@@ -63,6 +63,20 @@ export class ServiceComponent implements OnInit {
     this.directives.splice(index, 1);
   }
 
+  setDirectivesFromString(blob: string): void {
+    const lines = blob.split('\n')
+                      .map(line => line.trim())
+                      .filter(line => line);
+
+    const new_directives = lines.map((line) => {
+      const parts = line.split(/\s+/);
+      const directive = new Directive(parts[1], parts[2], Color.NONE, null);
+      return directive;
+    });
+
+    this.directives = new_directives;
+  }
+
   setDirectiveResult(index: number, success: boolean): void {
     this.directives[index].success = success;
     this.directives[index].color = success ? Color.SUCCESS : Color.FAILURE;
@@ -94,6 +108,11 @@ export class ServiceComponent implements OnInit {
   }
 
   openBulkAddModal(): void {
-    this.modal.open(BulkAddComponent, { size: 'lg', centered: true });
+    const modalOptions: NgbModalOptions = { size: 'lg', centered: true };
+    const modalRef = this.modal.open(BulkAddComponent, modalOptions);
+
+    modalRef.componentInstance.eventEmitter.subscribe((blob) => {
+      this.setDirectivesFromString(blob);
+    });
   }
 }

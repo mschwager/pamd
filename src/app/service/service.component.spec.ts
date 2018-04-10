@@ -73,4 +73,28 @@ describe('ServiceComponent', () => {
     expect(component.getDirectiveLength()).toBe(1);
   });
 
+  it('set directives from string empty', () => {
+    component.setDirectivesFromString(``);
+
+    expect(component.getDirectiveLength()).toBe(0);
+  });
+
+  it('set directives from string one line', () => {
+    component.setDirectivesFromString(`
+      auth required pam_unix.so
+    `);
+
+    expect(component.getDirectiveLength()).toBe(1);
+  });
+
+  it('set directives from string many lines', () => {
+    component.setDirectivesFromString(`
+      auth required pam_unix.so
+      auth requisite pam_sss.so
+      auth required pam_deny.so
+    `);
+
+    expect(component.getDirectiveLength()).toBe(3);
+  });
+
 });
