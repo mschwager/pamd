@@ -6,7 +6,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --prod",
-    "deploy": "ng build --prod && aws s3 cp dist s3://pamd.io --recursive --acl public-read",
+    "deploy": "ng build --prod  --subresource-integrity --delete-output-path --output-path docs/ --base-href /pamd/",
     "test": "ng test",
     "test:cover": "ng test --code-coverage",
     "coveralls": "cat coverage/lcov.info | coveralls",
